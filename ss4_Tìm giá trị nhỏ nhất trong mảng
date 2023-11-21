@@ -1,38 +1,25 @@
 package Bt4;
-
 import java.util.Scanner;
-
-public class xoaphantu {
+public class GTNN {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Nhập số phần tử của mảng N: ");
-        int N = scanner.nextInt();
-        int[] array = new int[N];
-        for (int i=0; i<N; i++) {
-            System.out.print("Phần tử thứ " + (i+1) + ": ");
-            array[i] = scanner.nextInt();
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Nhập số lượng phần tử trong mảng: ");
+        int n = sc.nextInt();
+        // Khởi tạo mảng với kích thước n
+        int[] arr = new int[n];
+
+        System.out.println("Nhập các phần tử của mảng:");
+        for (int i=0; i<n; i++) {
+            System.out.print("Phần tử " + (i+1) + ": ");
+            arr[i] = sc.nextInt();
         }
-
-        System.out.print("Nhập phần tử cần xoá (X): ");
-        int X = scanner.nextInt();
-
-        int index_del = -1;
-        for (int i=0; i<N; i++) {
-            if (array[i]==X) {
-                index_del = i;
-                break;
+        // Tìm giá trị nhỏ nhất trong mảng
+        int minValue = arr[0];
+        for (int i=1; i<n; i++) {
+            if (arr[i] < minValue) {
+                minValue = arr[i];
             }
         }
-
-        if (index_del != -1) {
-            for (int i=index_del; i<N-1; i++) {
-                array[i] = array[i+1];
-            }
-        }
-
-        System.out.println("Mảng sau khi xoá phần tử " + X + ":");
-        for (int i=0; i<N; i++) {
-            System.out.print(array[i] + " ");
-        }
+        System.out.println("Giá trị nhỏ nhất trong mảng là: " + minValue);
     }
 }
