@@ -1,1 +1,69 @@
+package Bt5;
+import java.util.Scanner;
+public class Ptbachai {
+    private double a,b,c;
 
+    public Ptbachai(double a,double b,double c){
+        this.a=a;
+        this.b=b;
+        this.c=c;
+    }
+    public double geta(){
+        return a;
+    }
+    public double getb(){
+        return b;
+    }
+    public double getc(){
+        return c;
+    }
+    public double getDiscriminant(){
+        return this.b*this.b-4*this.a*this.c;
+    }
+    public double getRoot1(){
+        double delta = getDiscriminant();
+        if (delta<0){
+            return 0;
+        }
+        else {
+            return (-b-Math.sqrt(delta))/(2*a);
+        }
+    }
+    public double getRoot2(){
+        double delta = getDiscriminant();
+        if (delta<0){
+            return 0;
+        }
+        else {
+            return (-b+Math.sqrt(delta))/(2*a);
+        }
+    }
+    public static class Pt {
+        public static void main(String[]args){
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Input a:");
+            double a = sc.nextDouble();
+            System.out.println("Input b:");
+            double b = sc.nextDouble();
+            System.out.println("Input c:");
+            double c = sc.nextDouble();
+            Ptbachai e = new Ptbachai(a,b,c);
+            double discriminant = e.getDiscriminant();
+            if (discriminant > 0) {
+                double root1 = e.getRoot1();
+                double root2 = e.getRoot2();
+                System.out.println("Root 1: " + root1);
+                System.out.println("Root 2: " + root2);
+            }
+            else if (discriminant == 0){
+                double root1 = e.getRoot1();
+                double root2 = e.getRoot2();
+                System.out.println("Root: " + root2);
+            }
+            else{
+                System.out.println("The equation has no roots");
+            }
+        }
+    }
+
+}
